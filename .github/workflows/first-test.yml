@@ -1,0 +1,15 @@
+name: My First CI Test # 工作流的名称，会在Actions页面显示
+
+on: [push] # 触发条件：每当有代码推送到这个仓库时，就运行此工作流
+
+jobs: # 工作流由一个或多个任务组成
+  explore-github-actions: # 第一个任务的ID
+    runs-on: ubuntu-latest # 任务在GitHub提供的最新版Ubuntu系统上运行
+    steps: # 任务由一系列步骤组成
+      - name: Check out repository code # 步骤1：检出代码
+        uses: actions/checkout@v4 # 使用官方checkout Action，将你的代码拉到运行器上
+
+      - name: Print a greeting # 步骤2：打印问候
+        run: | # “run”关键字表示要执行的shell命令
+          echo "🎉 Hello, World! My first GitHub Actions workflow is running!"
+          echo "The current time is $(date)"
