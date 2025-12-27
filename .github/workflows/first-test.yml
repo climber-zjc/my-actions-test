@@ -13,3 +13,7 @@ jobs: # 工作流由一个或多个任务组成
         run: | # “run”关键字表示要执行的shell命令
           echo "🎉 Hello, World! My first GitHub Actions workflow is running!"
           echo "The current time is $(date)"
+      - name: Run a simple shell test # 步骤3：运行测试脚本
+        run: |
+          chmod +x ./test.sh # 为脚本添加执行权限
+          ./test.sh # 执行脚本，如果脚本返回非0退出码，该步骤会失败
